@@ -5,6 +5,18 @@ class ExpenseMasterApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp();
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: As(),
+    );
+  }
+}
+
+class As extends StatelessWidget {
+  const As({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold();
   }
 }
