@@ -31,8 +31,21 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
+
+  # for set splash screen in start app
   flutter_native_splash: ^2.3.10
+  # this package to make app responsive size
   flutter_screenutil: ^5.9.0
+
+
+
+
+
+
+
+
+
+
 
 dev_dependencies:
   flutter_lints: ^3.0.1
