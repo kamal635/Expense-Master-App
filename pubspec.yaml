@@ -29,19 +29,23 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   cupertino_icons: ^1.0.2
+  
   flutter:
     sdk: flutter
 
-  # for set splash screen in start app
+
+  # For set splash screen in start App
   flutter_native_splash: ^2.3.10
-  # this package to make app responsive size
+
+  # For make App Responsive size
   flutter_screenutil: ^5.9.0
 
+  # Firebase Services
+  firebase_auth: ^4.17.4
+  firebase_core: ^2.25.4
 
-
-
-
-
+  # sign in with Google in Firebase
+  google_sign_in: ^6.2.1
 
 
 
