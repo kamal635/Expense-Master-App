@@ -42,3 +42,11 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+android/.tmp/
+android/caches/
+android/wrapper/
+pubspec.lock
+pubspec.yaml
+android/daemon/
+android/app/build.gradle
+ios/firebase_app_id_file.json
