@@ -1,16 +1,17 @@
+import 'package:expense_master/core/error/firebase_error.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import "package:dartz/dartz.dart";
 
 // All method in Google sign in repo
 abstract class GoogleSignInRepo {
-  Future<UserCredential?> signInWithGoogle();
+  Future<Either<FirbaseErrorHandle, UserCredential?>> signInWithGoogle();
 }
 
 // Implements All method in Google sign in repo
 class GoogleSignInRepoImpl implements GoogleSignInRepo {
   @override
-  Future<UserCredential?> signInWithGoogle() async {
+  Future<Either<FirbaseErrorHandle, UserCredential?>> signInWithGoogle() async {
     try {
       // Trigger the authentication flow
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
@@ -26,16 +27,10 @@ class GoogleSignInRepoImpl implements GoogleSignInRepo {
       );
 
       // Once signed in, return the UserCredential
-      return await FirebaseAuth.instance.signInWithCredential(credential);
-    } on FirebaseAuthException catch (e) {
-      if (kDebugMode) {
-        print("@@FirebaseAuthException: $e");
-      }
-    } on FirebaseException catch (e) {
-      if (kDebugMode) {
-        print("@@FirebaseException: $e");
-      }
+      return right(
+          await FirebaseAuth.instance.signInWithCredential(credential));
+    } catch (e) {
+      return left(FirbaseErrorHandle.fromFirebaseError(e));
     }
-    return null;
   }
 }
