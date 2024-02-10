@@ -44,38 +44,40 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBy9AN8e0vh7fJRwtG8_5YKhMh1YkO0xzQ',
-    appId: '1:397827443104:web:ff7da46ad57ee2f23abcc5',
-    messagingSenderId: '397827443104',
-    projectId: 'expensemaster-19ec1',
-    authDomain: 'expensemaster-19ec1.firebaseapp.com',
-    storageBucket: 'expensemaster-19ec1.appspot.com',
-    measurementId: 'G-0TRWJ0PXKH',
+    apiKey: 'AIzaSyB0-FtkuWyr9hV3z7_HZ61qhXdqtKwdYGE',
+    appId: '1:600600299470:web:15cbf619dc15dd02554d9f',
+    messagingSenderId: '600600299470',
+    projectId: 'expensemaster-c337f',
+    authDomain: 'expensemaster-c337f.firebaseapp.com',
+    storageBucket: 'expensemaster-c337f.appspot.com',
+    measurementId: 'G-25NVB8FDFT',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAncic_QmTk0GhfJgqjLJw7l9Km1TTnyFI',
-    appId: '1:397827443104:android:1dcff30b7b60cdc43abcc5',
-    messagingSenderId: '397827443104',
-    projectId: 'expensemaster-19ec1',
-    storageBucket: 'expensemaster-19ec1.appspot.com',
+    apiKey: 'AIzaSyCo9MmvKGwsFgaEME8soI4D2SmS57cLQ2E',
+    appId: '1:600600299470:android:e6dfa98addd41264554d9f',
+    messagingSenderId: '600600299470',
+    projectId: 'expensemaster-c337f',
+    storageBucket: 'expensemaster-c337f.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDnizyTrzk57tswQlxKCUl8rvsLQq378Yk',
-    appId: '1:397827443104:ios:c98059601dc164433abcc5',
-    messagingSenderId: '397827443104',
-    projectId: 'expensemaster-19ec1',
-    storageBucket: 'expensemaster-19ec1.appspot.com',
+    apiKey: 'AIzaSyC-ydhLkzQM-FJId0I7O-NBfBl8QdYvUiE',
+    appId: '1:600600299470:ios:90d424bdb276a2f2554d9f',
+    messagingSenderId: '600600299470',
+    projectId: 'expensemaster-c337f',
+    storageBucket: 'expensemaster-c337f.appspot.com',
+    iosClientId: '600600299470-srahb9i3sb7f3ppfmiicsp3dd85nntu3.apps.googleusercontent.com',
     iosBundleId: 'com.example.expenseMaster',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDnizyTrzk57tswQlxKCUl8rvsLQq378Yk',
-    appId: '1:397827443104:ios:609892c49c991dd03abcc5',
-    messagingSenderId: '397827443104',
-    projectId: 'expensemaster-19ec1',
-    storageBucket: 'expensemaster-19ec1.appspot.com',
+    apiKey: 'AIzaSyC-ydhLkzQM-FJId0I7O-NBfBl8QdYvUiE',
+    appId: '1:600600299470:ios:8219e2afca2683a7554d9f',
+    messagingSenderId: '600600299470',
+    projectId: 'expensemaster-c337f',
+    storageBucket: 'expensemaster-c337f.appspot.com',
+    iosClientId: '600600299470-jan9iodkb7kb0g7jj19tsgm6aupr058e.apps.googleusercontent.com',
     iosBundleId: 'com.example.expenseMaster.RunnerTests',
   );
 }
