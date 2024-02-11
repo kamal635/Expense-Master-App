@@ -1,19 +1,50 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/services.dart';
 
-class FirbaseErrorHandle {
+class ErrorHandle {
   final String? message;
 
-  FirbaseErrorHandle({required this.message});
+  ErrorHandle({required this.message});
+}
 
-  factory FirbaseErrorHandle.fromFirebaseError(dynamic error) {
-    if (error is FirebaseAuthException ||
-        error is FirebaseException ||
-        error is PlatformException ||
-        error is Exception) {
-      return FirbaseErrorHandle(message: error.toString());
-    } else {
-      return FirbaseErrorHandle(message: 'An unknown error occurred');
+class HandleErrorFirebaseAuthException extends ErrorHandle {
+  HandleErrorFirebaseAuthException({required super.message});
+
+  factory HandleErrorFirebaseAuthException.fromFirebase(
+      FirebaseAuthException e) {
+    switch (e.code) {
+      case 'account-exists-with-different-credential':
+        return HandleErrorFirebaseAuthException(
+            message:
+                'account exists with different credential, Please try again later..');
+
+      case 'invalid-credential':
+        return HandleErrorFirebaseAuthException(
+            message: 'invalid credential, Please try again later..');
+
+      case 'operation-not-allowed':
+        return HandleErrorFirebaseAuthException(
+            message: 'operation not allowed, Please try again later..');
+
+      case 'network-request-failed':
+        return HandleErrorFirebaseAuthException(
+            message: 'network request failed, Please try again later..');
+
+      case 'sign_in_failed':
+        return HandleErrorFirebaseAuthException(
+            message: "sign in failed, Please try again later..");
+
+      case 'network_error':
+        return HandleErrorFirebaseAuthException(
+            message: 'network error, Please try again later..');
+
+      case 'unknown':
+        return HandleErrorFirebaseAuthException(
+            message:
+                'An internal error has occurred, Please try again later..');
+
+      default:
+        return HandleErrorFirebaseAuthException(
+            message: 'Unknown error, Please try again later..');
     }
   }
 }

@@ -24,7 +24,7 @@ void dialogError({required BuildContext context, required String? error}) {
         textAlign: TextAlign.center,
       ),
       content: Text(
-        error!,
+        error ?? "try again later!",
         style: AppFonts.normal_14.copyWith(color: AppColor.grey),
         textAlign: TextAlign.center,
       ),
