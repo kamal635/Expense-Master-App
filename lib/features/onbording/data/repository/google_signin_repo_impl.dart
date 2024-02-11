@@ -5,13 +5,13 @@ import "package:dartz/dartz.dart";
 
 // All method in Google sign in repo
 abstract class GoogleSignInRepo {
-  Future<Either<FirbaseErrorHandle, UserCredential?>> signInWithGoogle();
+  Future<Either<ErrorHandle, UserCredential?>> signInWithGoogle();
 }
 
 // Implements All method in Google sign in repo
 class GoogleSignInRepoImpl implements GoogleSignInRepo {
   @override
-  Future<Either<FirbaseErrorHandle, UserCredential?>> signInWithGoogle() async {
+  Future<Either<ErrorHandle, UserCredential?>> signInWithGoogle() async {
     try {
       // Trigger the authentication flow
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
@@ -30,7 +30,11 @@ class GoogleSignInRepoImpl implements GoogleSignInRepo {
       return right(
           await FirebaseAuth.instance.signInWithCredential(credential));
     } catch (e) {
-      return left(FirbaseErrorHandle.fromFirebaseError(e));
+      if (e is FirebaseAuthException) {
+        return left(HandleErrorFirebaseAuthException.fromFirebase(e));
+      }
+
+      return left(ErrorHandle(message: e.toString()));
     }
   }
 }
