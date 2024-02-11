@@ -12,10 +12,13 @@ class GoogleSignInCubit extends Cubit<GoogleSignInState> {
       : super(const GoogleSignInState.initial());
 
   Future<void> emitSignInStates() async {
+    //emit loading state
     emit(const GoogleSignInState.signInLoading());
+    // return response from google sign in
     final response = await _signInRepoImpl.signInWithGoogle();
+    // check response if was success or failure
     response.fold(
-        (l) => emit(GoogleSignInState.signInFailure(error: l.message)),
+        (error) => emit(GoogleSignInState.signInFailure(error: error.message)),
         (userCredential) =>
             emit(GoogleSignInState.signInSuccess(userCredential)));
   }
