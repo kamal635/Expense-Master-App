@@ -19,15 +19,10 @@ class ButtonOnBordingView extends StatelessWidget {
             current is SignInFailure,
         listener: (context, state) {
           state.whenOrNull(
-              // state work when sign in return error the show alertDialog
               signInFailure: (error) =>
                   dialogError(context: context, error: error),
-              //note!!!!!
-              // sign in success in file routing above onbording view
               signInSuccess: (userCredential) {
-                if (userCredential?.user?.uid != null) {
-                  return context.pushReplacementNamed(NameRouter.homeView);
-                }
+                return context.pushReplacementNamed(NameRouter.homeView);
               });
         },
         builder: (context, state) {
@@ -36,9 +31,8 @@ class ButtonOnBordingView extends StatelessWidget {
             titleWithImage: lodaingState ? false : true,
             //when state is loading switch "continue with google" to "Loading..."
             title: lodaingState ? AppString.loading : AppString.continueGoogle,
-            onPressed: () {
-              // call function sign in with google from cubit
-              context.read<GoogleSignInCubit>().emitSignInStates();
+            onPressed: () async {
+              await context.read<GoogleSignInCubit>().emitSignInStates();
             },
           );
         });

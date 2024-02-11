@@ -1,5 +1,6 @@
 import 'package:expense_master/core/error/firebase_error.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import "package:dartz/dartz.dart";
 
@@ -32,6 +33,9 @@ class GoogleSignInRepoImpl implements GoogleSignInRepo {
     } catch (e) {
       if (e is FirebaseAuthException) {
         return left(HandleErrorFirebaseAuthException.fromFirebase(e));
+      }
+      if (e is PlatformException) {
+        return left(HandlePlatformException.fromPlatformExeption(e));
       }
 
       return left(ErrorHandle(message: e.toString()));
