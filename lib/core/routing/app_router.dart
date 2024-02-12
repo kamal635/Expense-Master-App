@@ -1,8 +1,8 @@
 import 'package:expense_master/core/dependency%20injection/di.dart';
 import 'package:expense_master/core/routing/name_router.dart';
+import 'package:expense_master/features/auth/logic/cubit_sign_in_google/google_sign_in_cubit.dart';
 import 'package:expense_master/features/onBording/view/onBording_view.dart';
-import 'package:expense_master/features/onbording/logic/cubit/google_sign_in_cubit.dart';
-import 'package:expense_master/features/onbording/view/widgets/button_onbording.dart';
+import 'package:expense_master/features/onbording/widgets/button_onbording.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -20,10 +20,11 @@ abstract class AppRouter {
             child: BlocBuilder<GoogleSignInCubit, GoogleSignInState>(
               builder: (context, state) {
                 // get userId and Check (if empty => OnBording View else => Home View )
-                final userId = context.read<GoogleSignInCubit>().getUserId();
-                return userId.isEmpty
-                    ? const OnBordingView()
-                    : const HomeView();
+                final userIdFromLocal =
+                    context.read<GoogleSignInCubit>().getUserIdFromLocal();
+                return userIdFromLocal.isNotEmpty
+                    ? const HomeView()
+                    : const OnBordingView();
               },
             ),
           ),

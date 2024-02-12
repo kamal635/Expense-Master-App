@@ -3,7 +3,8 @@ import 'package:expense_master/core/helper/alert_dialgo.dart';
 import 'package:expense_master/core/helper/extensions.dart';
 import 'package:expense_master/core/routing/name_router.dart';
 import 'package:expense_master/core/widgets/app_button.dart';
-import 'package:expense_master/features/onbording/logic/cubit/google_sign_in_cubit.dart';
+import 'package:expense_master/features/auth/logic/cubit_sign_in_google/google_sign_in_cubit.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

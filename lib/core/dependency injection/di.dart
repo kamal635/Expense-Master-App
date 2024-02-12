@@ -1,6 +1,6 @@
-import 'package:expense_master/features/onbording/data/local_data_source.dart/keep_user_sign_in.dart';
-import 'package:expense_master/features/onbording/data/repository/google_signin_repo_impl.dart';
-import 'package:expense_master/features/onbording/logic/cubit/google_sign_in_cubit.dart';
+import 'package:expense_master/features/auth/logic/cubit_sign_in_google/google_sign_in_cubit.dart';
+import 'package:expense_master/features/auth/data/local_data_source.dart/keep_user_sign_in.dart';
+import 'package:expense_master/features/auth/data/repository/google_signin_repo_impl.dart';
 import 'package:get_it/get_it.dart';
 
 final getIt = GetIt.instance;

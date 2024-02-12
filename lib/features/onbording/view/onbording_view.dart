@@ -1,6 +1,6 @@
-import 'package:expense_master/features/onbording/view/widgets/button_onbording.dart';
-import 'package:expense_master/features/onbording/view/widgets/image_onbording.dart';
-import 'package:expense_master/features/onbording/view/widgets/title_onbording.dart';
+import 'package:expense_master/features/onbording/widgets/button_onbording.dart';
+import 'package:expense_master/features/onbording/widgets/image_onbording.dart';
+import 'package:expense_master/features/onbording/widgets/title_onbording.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

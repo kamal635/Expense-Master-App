@@ -7,10 +7,15 @@ import "package:dartz/dartz.dart";
 // All method in Google sign in repo
 abstract class GoogleSignInRepo {
   Future<Either<ErrorHandle, UserCredential?>> signInWithGoogle();
+  Stream<User?> authStateChanges();
 }
 
 // Implements All method in Google sign in repo
 class GoogleSignInRepoImpl implements GoogleSignInRepo {
+  final FirebaseAuth _firebaseAuth;
+
+  GoogleSignInRepoImpl({FirebaseAuth? firebaseAuth})
+      : _firebaseAuth = firebaseAuth ?? FirebaseAuth.instance;
   @override
   Future<Either<ErrorHandle, UserCredential?>> signInWithGoogle() async {
     try {
@@ -28,8 +33,7 @@ class GoogleSignInRepoImpl implements GoogleSignInRepo {
       );
 
       // Once signed in, return the UserCredential
-      return right(
-          await FirebaseAuth.instance.signInWithCredential(credential));
+      return right(await _firebaseAuth.signInWithCredential(credential));
     } catch (e) {
       if (e is FirebaseAuthException) {
         return left(HandleErrorFirebaseAuthException.fromFirebase(e));
@@ -40,5 +44,10 @@ class GoogleSignInRepoImpl implements GoogleSignInRepo {
 
       return left(ErrorHandle(message: e.toString()));
     }
+  }
+
+  @override
+  Stream<User?> authStateChanges() {
+    return _firebaseAuth.authStateChanges();
   }
 }
