@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:expense_master/features/auth/data/local_data_source.dart/keep_user_sign_in.dart';
 import 'package:expense_master/features/auth/data/repository/google_signin_repo_impl.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,20 +9,16 @@ part 'google_sign_in_cubit.freezed.dart';
 
 class GoogleSignInCubit extends Cubit<GoogleSignInState> {
   final GoogleSignInRepoImpl _signInRepoImpl;
-  final KeepUserSignInImpl _keepUserSignInImpl;
-  StreamSubscription? streamSubscription;
+  StreamSubscription<User?>? streamSubscription;
 
-  GoogleSignInCubit(this._signInRepoImpl, this._keepUserSignInImpl)
+  GoogleSignInCubit(this._signInRepoImpl)
       : super(const GoogleSignInState.initial()) {
-    streamSubscription = _signInRepoImpl.authStateChanges().listen((user) {
-      print("@@@This User Info From Firebase:$user @@@");
-
-      if (user?.uid != getUserIdFromLocal()) {
-        _keepUserSignInImpl.removeUserId(userId: user?.uid);
-      }
-    });
+    streamSubscription = _signInRepoImpl
+        .authStateChanges()
+        .listen((user) => print("@@@This User Info From Firebase:$user @@@"));
   }
 
+  // Method sign in with Google
   Future<void> emitSignInStates() async {
     emit(const GoogleSignInState.signInLoading());
 
@@ -32,19 +27,23 @@ class GoogleSignInCubit extends Cubit<GoogleSignInState> {
     response.fold(
         (error) => emit(GoogleSignInState.signInFailure(error: error.message)),
         (userCredential) async {
-      final useId = userCredential?.user?.uid;
-      //this method to add idUser in local storage by Hive
-      await _keepUserSignInImpl.addUserId(userId: useId ?? "");
-
       return emit(GoogleSignInState.signInSuccess(userCredential));
     });
   }
 
-  // this method to return userId to use this in file routing to show
-  // onbording view or home view
-  String getUserIdFromLocal() {
-    return _keepUserSignInImpl.getUserId();
+  // Method Reload Current User
+  Future<void> reloadCurrentUser() async {
+    final response = await _signInRepoImpl.reloadCurrentUser();
+
+    response.fold(
+        (error) => emit(GoogleSignInState.signInFailure(error: error.message)),
+        (_) {
+      return null;
+    });
   }
+
+  // get userID
+  String? get userID => _signInRepoImpl.userID;
 
   @override
   Future<void> close() {

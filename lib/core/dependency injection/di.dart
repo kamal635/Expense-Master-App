@@ -1,5 +1,4 @@
 import 'package:expense_master/features/auth/logic/cubit_sign_in_google/google_sign_in_cubit.dart';
-import 'package:expense_master/features/auth/data/local_data_source.dart/keep_user_sign_in.dart';
 import 'package:expense_master/features/auth/data/repository/google_signin_repo_impl.dart';
 import 'package:get_it/get_it.dart';
 
@@ -10,10 +9,6 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<GoogleSignInRepoImpl>(
       () => GoogleSignInRepoImpl());
 
-//Google Sign in: Keep user sign in
-  getIt.registerLazySingleton<KeepUserSignInImpl>(() => KeepUserSignInImpl());
-
   // Login with Google Sign in
-  getIt.registerFactory<GoogleSignInCubit>(
-      () => GoogleSignInCubit(getIt(), getIt()));
+  getIt.registerFactory<GoogleSignInCubit>(() => GoogleSignInCubit(getIt()));
 }
