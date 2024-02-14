@@ -1,4 +1,5 @@
 import 'package:expense_master/core/dependency%20injection/di.dart';
+import 'package:expense_master/core/routing/method_pages.dart';
 import 'package:expense_master/core/routing/name_router.dart';
 import 'package:expense_master/features/auth/logic/cubit_sign_in_google/google_sign_in_cubit.dart';
 import 'package:expense_master/features/onBording/view/onBording_view.dart';
@@ -15,26 +16,22 @@ abstract class AppRouter {
       // ======================= OnBording View =======================
       case NameRouter.onbordingView:
         return MaterialPageRoute(
-          builder: (context) => BlocProvider(
-            create: (context) =>
-                getIt<GoogleSignInCubit>()..reloadCurrentUser(),
-            child: BlocBuilder<GoogleSignInCubit, GoogleSignInState>(
-              builder: (context, state) {
-                // get userId and Check (if null => OnBording View else => Home View )
-                final userIDfromFirebase =
-                    context.read<GoogleSignInCubit>().userID;
-
-                return userIDfromFirebase != null
-                    ? const HomeView()
-                    : const OnBordingView();
-              },
-            ),
+          builder: (context) =>
+              BlocBuilder<GoogleSignInCubit, GoogleSignInState>(
+            builder: (context, state) {
+              // get userId and Check (if null => OnBording View else => Home View )
+              final userIDfromFirebase =
+                  context.read<GoogleSignInCubit>().userID;
+              return userIDfromFirebase != null
+                  ? currentPage(page: const HomeView())
+                  : currentPage(page: const OnBordingView());
+            },
           ),
         );
       //======================= Home View =======================
       case NameRouter.homeView:
         return MaterialPageRoute(
-          builder: (context) => const HomeView(),
+          builder: (context) => currentPage(page: const HomeView()),
         );
       // if Router does not exist show this text
       default:

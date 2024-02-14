@@ -1,4 +1,6 @@
 import 'package:dartz/dartz.dart';
+import 'package:expense_master/core/error/case_error.dart';
+import 'package:expense_master/core/error/message_error.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 
@@ -14,43 +16,50 @@ class HandleErrorFirebaseAuthException extends ErrorHandle {
   factory HandleErrorFirebaseAuthException.fromFirebase(
       FirebaseAuthException e) {
     switch (e.code) {
-      case 'account-exists-with-different-credential':
+      case CaseError.differentCredential:
         return HandleErrorFirebaseAuthException(
-            message:
-                'Account exists with different credential, Please try again later..');
+          message: MessageError.differentCredential,
+        );
 
-      case 'user-not-found':
+      case CaseError.userNotFound:
         return HandleErrorFirebaseAuthException(
-            message: 'User not found, Pleas Login again.. ');
+          message: MessageError.userNotFound,
+        );
 
-      case 'invalid-credential':
+      case CaseError.invalidCredential:
         return HandleErrorFirebaseAuthException(
-            message: 'Invalid credential, Please try again later..');
+          message: MessageError.invalidCredential,
+        );
 
-      case 'operation-not-allowed':
+      case CaseError.operationNotAllowed:
         return HandleErrorFirebaseAuthException(
-            message: 'Operation not allowed, Please try again later..');
+          message: MessageError.operationNotAllowed,
+        );
 
-      case 'network-request-failed':
+      case CaseError.networkRequestFailed:
         return HandleErrorFirebaseAuthException(
-            message: 'Network request failed, Please try again later..');
+          message: MessageError.networkRequestFailed,
+        );
 
-      case 'sign_in_failed':
+      case CaseError.signInFailed:
         return HandleErrorFirebaseAuthException(
-            message: "Sign in failed, Please try again later..");
+          message: MessageError.signInFailed,
+        );
 
-      case 'network_error':
+      case CaseError.networkError:
         return HandleErrorFirebaseAuthException(
-            message: 'Network error, Please try again later..');
+          message: MessageError.networkError,
+        );
 
-      case 'unknown':
+      case CaseError.unknown:
         return HandleErrorFirebaseAuthException(
-            message:
-                'An internal error has occurred, Please try again later..');
+          message: MessageError.unknown,
+        );
 
       default:
         return HandleErrorFirebaseAuthException(
-            message: 'Unknown error, Please try again later..');
+          message: MessageError.defaultError,
+        );
     }
   }
 }
@@ -61,13 +70,15 @@ class HandlePlatformException extends ErrorHandle {
 
   factory HandlePlatformException.fromPlatformExeption(PlatformException e) {
     switch (e.code) {
-      case 'network_error':
+      case CaseError.networkError:
         return HandlePlatformException(
-            message: 'Network error, Please try again later..');
+          message: MessageError.networkError,
+        );
 
       default:
         return HandlePlatformException(
-            message: 'Unknown error, Please try again later..');
+          message: MessageError.defaultError,
+        );
     }
   }
 }
