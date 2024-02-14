@@ -1,13 +1,17 @@
 import 'package:expense_master/core/error/firebase_error.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import "package:dartz/dartz.dart";
 
-// All method in Google sign in repo
 abstract class GoogleSignInRepo {
+  // sign in with google sign in
   Future<Either<ErrorHandle, UserCredential?>> signInWithGoogle();
+  // listen to user changes
   Stream<User?> authStateChanges();
+  // reload current user to get any changes made
+  Future<Either<ErrorHandle, Unit>> reloadCurrentUser();
+  // get userID
+  String? get userID;
 }
 
 // Implements All method in Google sign in repo
@@ -16,6 +20,8 @@ class GoogleSignInRepoImpl implements GoogleSignInRepo {
 
   GoogleSignInRepoImpl({FirebaseAuth? firebaseAuth})
       : _firebaseAuth = firebaseAuth ?? FirebaseAuth.instance;
+
+  // 1-
   @override
   Future<Either<ErrorHandle, UserCredential?>> signInWithGoogle() async {
     try {
@@ -35,19 +41,28 @@ class GoogleSignInRepoImpl implements GoogleSignInRepo {
       // Once signed in, return the UserCredential
       return right(await _firebaseAuth.signInWithCredential(credential));
     } catch (e) {
-      if (e is FirebaseAuthException) {
-        return left(HandleErrorFirebaseAuthException.fromFirebase(e));
-      }
-      if (e is PlatformException) {
-        return left(HandlePlatformException.fromPlatformExeption(e));
-      }
-
-      return left(ErrorHandle(message: e.toString()));
+      return methodHandleErrorExceptions(e);
     }
   }
 
+  // 2-
   @override
   Stream<User?> authStateChanges() {
     return _firebaseAuth.authStateChanges();
   }
+
+  // 3-
+  @override
+  Future<Either<ErrorHandle, Unit>> reloadCurrentUser() async {
+    try {
+      await _firebaseAuth.currentUser?.reload();
+      return right(unit);
+    } catch (e) {
+      return methodHandleErrorExceptions(e);
+    }
+  }
+
+  // 4-
+  @override
+  String? get userID => _firebaseAuth.currentUser?.uid;
 }

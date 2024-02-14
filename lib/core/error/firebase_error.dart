@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 
@@ -17,6 +18,10 @@ class HandleErrorFirebaseAuthException extends ErrorHandle {
         return HandleErrorFirebaseAuthException(
             message:
                 'Account exists with different credential, Please try again later..');
+
+      case 'user-not-found':
+        return HandleErrorFirebaseAuthException(
+            message: 'User not found, Pleas Login again.. ');
 
       case 'invalid-credential':
         return HandleErrorFirebaseAuthException(
@@ -64,5 +69,17 @@ class HandlePlatformException extends ErrorHandle {
         return HandlePlatformException(
             message: 'Unknown error, Please try again later..');
     }
+  }
+}
+
+// this method to add all type exceptions
+Either<ErrorHandle, T> methodHandleErrorExceptions<T>(Object e) {
+  if (e is FirebaseAuthException) {
+    return left(HandleErrorFirebaseAuthException.fromFirebase(e));
+  }
+  if (e is PlatformException) {
+    return left(HandlePlatformException.fromPlatformExeption(e));
+  } else {
+    return left(ErrorHandle(message: e.toString()));
   }
 }

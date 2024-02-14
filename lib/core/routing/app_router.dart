@@ -16,13 +16,15 @@ abstract class AppRouter {
       case NameRouter.onbordingView:
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
-            create: (context) => getIt<GoogleSignInCubit>(),
+            create: (context) =>
+                getIt<GoogleSignInCubit>()..reloadCurrentUser(),
             child: BlocBuilder<GoogleSignInCubit, GoogleSignInState>(
               builder: (context, state) {
-                // get userId and Check (if empty => OnBording View else => Home View )
-                final userIdFromLocal =
-                    context.read<GoogleSignInCubit>().getUserIdFromLocal();
-                return userIdFromLocal.isNotEmpty
+                // get userId and Check (if null => OnBording View else => Home View )
+                final userIDfromFirebase =
+                    context.read<GoogleSignInCubit>().userID;
+
+                return userIDfromFirebase != null
                     ? const HomeView()
                     : const OnBordingView();
               },

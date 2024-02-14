@@ -1,4 +1,3 @@
-import 'package:expense_master/core/Strings/app_hive.dart';
 import 'package:expense_master/core/dependency%20injection/di.dart';
 import 'package:expense_master/core/helper/bloc_observer.dart';
 import 'package:expense_master/firebase_options.dart';
@@ -20,5 +19,4 @@ Future<void> allMethodsToInitial() async {
       options: DefaultFirebaseOptions.currentPlatform,
     ),
   ]);
-  await Hive.openBox(AppHive.googleSignInBox);
 }
