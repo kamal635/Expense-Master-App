@@ -6,12 +6,8 @@ import "package:dartz/dartz.dart";
 abstract class GoogleSignInRepo {
   // sign in with google sign in
   Future<Either<ErrorHandle, UserCredential?>> signInWithGoogle();
-  // listen to user changes
-  Stream<User?> authStateChanges();
   // reload current user to get any changes made
   Future<Either<ErrorHandle, Unit>> reloadCurrentUser();
-  // get userID
-  String? get userID;
 }
 
 // Implements All method in Google sign in repo
@@ -47,12 +43,6 @@ class GoogleSignInRepoImpl implements GoogleSignInRepo {
 
   // 2-
   @override
-  Stream<User?> authStateChanges() {
-    return _firebaseAuth.authStateChanges();
-  }
-
-  // 3-
-  @override
   Future<Either<ErrorHandle, Unit>> reloadCurrentUser() async {
     try {
       await _firebaseAuth.currentUser?.reload();
@@ -61,10 +51,6 @@ class GoogleSignInRepoImpl implements GoogleSignInRepo {
       return methodHandleErrorExceptions(e);
     }
   }
-
-  // 4-
-  @override
-  String? get userID => _firebaseAuth.currentUser?.uid;
 }
 // Column(
 //         mainAxisAlignment: MainAxisAlignment.center,

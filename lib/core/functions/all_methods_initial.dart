@@ -10,13 +10,12 @@ import 'package:hive_flutter/adapters.dart';
 Future<void> allMethodsToInitial() async {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = MyBlocObserver();
-
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  await setupGetIt();
   await Future.wait([
-    setupGetIt(),
     Hive.initFlutter(),
     ScreenUtil.ensureScreenSize(),
-    Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    ),
   ]);
 }

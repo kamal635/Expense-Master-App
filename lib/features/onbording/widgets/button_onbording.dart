@@ -44,9 +44,13 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
         body: Center(
-      child: Text("Home View"),
+      child: AppButton(
+          title: "Home 2",
+          onPressed: () {
+            context.pushNamed(NameRouter.homeView2);
+          }),
     ));
   }
 }

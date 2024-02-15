@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:expense_master/features/auth/data/repository/google_signin_repo_impl.dart';
+import 'package:expense_master/features/auth/data/repository/google_signin_repo.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -9,14 +9,9 @@ part 'google_sign_in_cubit.freezed.dart';
 
 class GoogleSignInCubit extends Cubit<GoogleSignInState> {
   final GoogleSignInRepoImpl _signInRepoImpl;
-  StreamSubscription<User?>? streamSubscription;
 
   GoogleSignInCubit(this._signInRepoImpl)
-      : super(const GoogleSignInState.initial()) {
-    streamSubscription = _signInRepoImpl
-        .authStateChanges()
-        .listen((user) => print("@@@This User Info From Firebase:$user @@@"));
-  }
+      : super(const GoogleSignInState.initial());
 
   // Method sign in with Google
   Future<void> emitSignInStates() async {
@@ -40,14 +35,5 @@ class GoogleSignInCubit extends Cubit<GoogleSignInState> {
         (_) {
       return null;
     });
-  }
-
-  // get userID
-  String? get userID => _signInRepoImpl.userID;
-
-  @override
-  Future<void> close() {
-    streamSubscription?.cancel();
-    return super.close();
   }
 }
