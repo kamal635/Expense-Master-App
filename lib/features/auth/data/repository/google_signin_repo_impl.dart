@@ -66,3 +66,125 @@ class GoogleSignInRepoImpl implements GoogleSignInRepo {
   @override
   String? get userID => _firebaseAuth.currentUser?.uid;
 }
+// Column(
+//         mainAxisAlignment: MainAxisAlignment.center,
+//         children: [
+//           AppButton(
+//               title: "Add User",
+//               onPressed: () async {
+//                 FirebaseFirestore firestore = FirebaseFirestore.instance;
+//                 FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+
+//                 User? user = firebaseAuth.currentUser;
+
+//                 DateTime now = DateTime.now();
+
+//                 UserModel userModel = UserModel(
+//                   userId: user?.uid,
+//                   email: user?.email,
+//                   name: user?.displayName,
+//                   userImage: user?.photoURL,
+//                   date: now,
+//                 );
+//                 //Set user:
+//                 await firestore
+//                     .collection("users")
+//                     .doc(user?.uid)
+//                     .collection("userInfo")
+//                     .doc(user?.uid)
+//                     .set(userModel.toFirestore());
+//               }),
+//           spaceheight(10),
+//           AppButton(
+//               title: "Income",
+//               onPressed: () async {
+//                 FirebaseFirestore firestore = FirebaseFirestore.instance;
+//                 FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+
+//                 User? user = firebaseAuth.currentUser;
+//                 String uuid = const Uuid().v4();
+//                 DateTime now = DateTime.now();
+//                 String year = "2025";
+//                 String month = "3";
+//                 String day = "20";
+
+//                 IncomeModel incomeModel = IncomeModel(
+//                   inputIncome: 50,
+//                   dateIncome: now,
+//                   iconCategoryIncome: "Home",
+//                   idIncome: uuid,
+//                   remarkIncome: "buy",
+//                 );
+
+//                 // Set Income:
+//                 await firestore
+//                     .collection("users")
+//                     .doc(user?.uid)
+//                     .collection("Income")
+//                     .doc(uuid)
+//                     .set(incomeModel.toFirestore());
+
+//                 // Set Income by Date:
+//                 await firestore
+//                     .collection("users")
+//                     .doc(user?.uid)
+//                     .collection("Income by date")
+//                     .doc(user?.uid)
+//                     .collection("years")
+//                     .doc(year)
+//                     .collection("months")
+//                     .doc(month)
+//                     .collection("days")
+//                     .doc(day)
+//                     .collection("Income")
+//                     .doc(uuid)
+//                     .set(incomeModel.toFirestore());
+//               }),
+//           spaceheight(10),
+//           AppButton(
+//               title: "Expense",
+//               onPressed: () async {
+//                 FirebaseFirestore firestore = FirebaseFirestore.instance;
+//                 FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+
+//                 User? user = firebaseAuth.currentUser;
+//                 String uuid = const Uuid().v4();
+//                 DateTime now = DateTime.now();
+//                 String year = now.year.toString();
+//                 String month = now.month.toString();
+//                 String day = now.day.toString();
+
+//                 ExpenseModel expenseModel = ExpenseModel(
+//                   inputExpense: 20,
+//                   dateExpense: now,
+//                   iconCategoryExpense: "food",
+//                   idExpense: uuid,
+//                   remarkExpense: "pizza",
+//                 );
+
+//                 // Set Expense:
+//                 await firestore
+//                     .collection("users")
+//                     .doc(user?.uid)
+//                     .collection("expense")
+//                     .doc(uuid)
+//                     .set(expenseModel.toFirestore());
+
+//                 // Set Expense by Date:
+//                 await firestore
+//                     .collection("users")
+//                     .doc(user?.uid)
+//                     .collection("expense by date")
+//                     .doc(user?.uid)
+//                     .collection("years")
+//                     .doc(year)
+//                     .collection("months")
+//                     .doc(month)
+//                     .collection("days")
+//                     .doc(day)
+//                     .collection("expense")
+//                     .doc(uuid)
+//                     .set(expenseModel.toFirestore());
+//               })
+//         ],
+//       ),

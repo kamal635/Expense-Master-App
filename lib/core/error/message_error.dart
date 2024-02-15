@@ -25,4 +25,25 @@ abstract class MessageError {
 
   static const String defaultError =
       "An unknown error occurred. Please try again later or contact support for assistance.";
+
+  static const String cancelled =
+      "The operation was cancelled, typically due to a network error.";
+
+  static const String invalidArgument =
+      "The operation was rejected because one or more arguments are invalid.";
+
+  static const String deadlineExceeded =
+      "The deadline for the operation expired before the operation could be completed.";
+
+  static const String notFound =
+      "The requested document or resource was not found.";
+
+  static const String alreadyExists =
+      "The document or resource already exists and cannot be created again.";
+
+  static const String permissionDenied =
+      "The caller does not have permission to perform the operation.";
+
+  static const String unauthenticated =
+      "The request does not have valid authentication credentials.";
 }
