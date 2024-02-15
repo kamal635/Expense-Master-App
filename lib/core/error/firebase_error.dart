@@ -64,19 +64,66 @@ class HandleErrorFirebaseAuthException extends ErrorHandle {
   }
 }
 
-// Class Handle Error from Platform Exception
-class HandlePlatformException extends ErrorHandle {
-  HandlePlatformException({required super.message});
+// Class Handle Error from Firebase Exception
+class HandleErroFirebaseException extends ErrorHandle {
+  HandleErroFirebaseException({required super.message});
+  factory HandleErroFirebaseException.fromFriebase(FirebaseException e) {
+    switch (e.code) {
+      case CaseError.cancelled:
+        return HandleErroFirebaseException(
+          message: MessageError.cancelled,
+        );
+      case CaseError.unknown:
+        return HandleErroFirebaseException(
+          message: MessageError.unknown,
+        );
 
-  factory HandlePlatformException.fromPlatformExeption(PlatformException e) {
+      case CaseError.invalidArgument:
+        return HandleErroFirebaseException(
+          message: MessageError.invalidArgument,
+        );
+      case CaseError.deadlineExceeded:
+        return HandleErroFirebaseException(
+          message: MessageError.deadlineExceeded,
+        );
+      case CaseError.notFound:
+        return HandleErroFirebaseException(
+          message: MessageError.notFound,
+        );
+      case CaseError.alreadyExists:
+        return HandleErroFirebaseException(
+          message: MessageError.alreadyExists,
+        );
+      case CaseError.permissionDenied:
+        return HandleErroFirebaseException(
+          message: MessageError.permissionDenied,
+        );
+      case CaseError.unauthenticated:
+        return HandleErroFirebaseException(
+          message: MessageError.unauthenticated,
+        );
+      default:
+        return HandleErroFirebaseException(
+          message: MessageError.defaultError,
+        );
+    }
+  }
+}
+
+// Class Handle Error from Platform Exception
+class HandleErrorPlatformException extends ErrorHandle {
+  HandleErrorPlatformException({required super.message});
+
+  factory HandleErrorPlatformException.fromPlatformExeption(
+      PlatformException e) {
     switch (e.code) {
       case CaseError.networkError:
-        return HandlePlatformException(
+        return HandleErrorPlatformException(
           message: MessageError.networkError,
         );
 
       default:
-        return HandlePlatformException(
+        return HandleErrorPlatformException(
           message: MessageError.defaultError,
         );
     }
@@ -89,7 +136,10 @@ Either<ErrorHandle, T> methodHandleErrorExceptions<T>(Object e) {
     return left(HandleErrorFirebaseAuthException.fromFirebase(e));
   }
   if (e is PlatformException) {
-    return left(HandlePlatformException.fromPlatformExeption(e));
+    return left(HandleErrorPlatformException.fromPlatformExeption(e));
+  }
+  if (e is FirebaseException) {
+    return left(HandleErroFirebaseException.fromFriebase(e));
   } else {
     return left(ErrorHandle(message: e.toString()));
   }
