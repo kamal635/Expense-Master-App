@@ -73,12 +73,7 @@ class GoogleSignInRepoImpl implements GoogleSignInRepo {
 //                   date: now,
 //                 );
 //                 //Set user:
-//                 await firestore
-//                     .collection("users")
-//                     .doc(user?.uid)
-//                     .collection("userInfo")
-//                     .doc(user?.uid)
-//                     .set(userModel.toFirestore());
+//                 
 //               }),
 //           spaceheight(10),
 //           AppButton(

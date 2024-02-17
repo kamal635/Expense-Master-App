@@ -9,13 +9,21 @@ import 'package:hive_flutter/adapters.dart';
 
 Future<void> allMethodsToInitial() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Bloc observer
   Bloc.observer = MyBlocObserver();
+
+  // initialize Firebase
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  // Get_it
   await setupGetIt();
-  await Future.wait([
-    Hive.initFlutter(),
-    ScreenUtil.ensureScreenSize(),
-  ]);
+
+  // to fix hide string in relase mode because use packages (ScreenUtil)
+  ScreenUtil.ensureScreenSize();
+
+  // initialize Hive
+  Hive.initFlutter();
 }

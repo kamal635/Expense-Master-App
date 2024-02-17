@@ -98,12 +98,18 @@ class __$$InitialImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InitialImpl implements _Initial {
+class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
   const _$InitialImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AuthListenState.initial()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'AuthListenState.initial'));
   }
 
   @override
@@ -206,12 +212,21 @@ class __$$AuthenticatedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AuthenticatedImpl implements Authenticated {
+class _$AuthenticatedImpl
+    with DiagnosticableTreeMixin
+    implements Authenticated {
   const _$AuthenticatedImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AuthListenState.authenticated()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'AuthListenState.authenticated'));
   }
 
   @override
@@ -314,12 +329,21 @@ class __$$UnAuthenticatedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UnAuthenticatedImpl implements UnAuthenticated {
+class _$UnAuthenticatedImpl
+    with DiagnosticableTreeMixin
+    implements UnAuthenticated {
   const _$UnAuthenticatedImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AuthListenState.unAuthenticated()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'AuthListenState.unAuthenticated'));
   }
 
   @override

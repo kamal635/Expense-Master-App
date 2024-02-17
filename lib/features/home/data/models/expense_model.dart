@@ -1,4 +1,7 @@
-class ExpenseModel {
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:equatable/equatable.dart';
+
+class ExpenseModel extends Equatable {
   final String? idExpense;
   final double inputExpense;
   final String? iconCategoryExpense;
@@ -12,13 +15,13 @@ class ExpenseModel {
       required this.dateExpense,
       this.remarkExpense});
 
-  factory ExpenseModel.fromFirestore(Map<String, dynamic> data) {
+  factory ExpenseModel.fromFirestore(DocumentSnapshot snap) {
     return ExpenseModel(
-      idExpense: data["idExpense"],
-      inputExpense: data["inputExpense"],
-      dateExpense: DateTime.parse(data['dateExpense']),
-      iconCategoryExpense: data["iconCategoryExpense"],
-      remarkExpense: data["remarkExpense"],
+      idExpense: snap["idExpense"],
+      inputExpense: snap["inputExpense"],
+      dateExpense: DateTime.parse(snap['dateExpense']),
+      iconCategoryExpense: snap["iconCategoryExpense"],
+      remarkExpense: snap["remarkExpense"],
     );
   }
 
@@ -31,4 +34,13 @@ class ExpenseModel {
       "remarkExpense": remarkExpense,
     };
   }
+
+  @override
+  List<Object?> get props => [
+        idExpense,
+        inputExpense,
+        dateExpense,
+        iconCategoryExpense,
+        remarkExpense,
+      ];
 }

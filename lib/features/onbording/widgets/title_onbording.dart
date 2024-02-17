@@ -11,13 +11,11 @@ class TitleOnBordingView extends StatelessWidget {
     return RichText(
       textAlign: TextAlign.center,
       text: TextSpan(
+        text: AppString.welcomeTo,
+        style: AppFonts.semiBold_28.copyWith(
+          color: AppColor.black,
+        ),
         children: [
-          TextSpan(
-            text: AppString.welcomeTo,
-            style: AppFonts.semiBold_28.copyWith(
-              color: AppColor.black,
-            ),
-          ),
           TextSpan(
             text: AppString.expense,
             style: AppFonts.semiBold_28.copyWith(

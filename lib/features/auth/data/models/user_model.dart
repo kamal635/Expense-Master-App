@@ -1,4 +1,7 @@
-class UserModel {
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:equatable/equatable.dart';
+
+class UserModel extends Equatable {
   final String? userId;
   final String? name;
   final String? userImage;
@@ -8,7 +11,7 @@ class UserModel {
   final double? totalIncome;
   final double? totalAll;
 
-  UserModel({
+  const UserModel({
     this.userId,
     required this.name,
     required this.userImage,
@@ -19,16 +22,16 @@ class UserModel {
     this.totalAll,
   });
 
-  factory UserModel.fromFirestore(Map<String, dynamic> data) {
+  factory UserModel.fromFirestore(DocumentSnapshot snap) {
     return UserModel(
-      userId: data["userId"],
-      name: data["name"],
-      email: data["email"],
-      userImage: data["userImage"],
-      date: DateTime.parse(data["date"]),
-      totalExpense: data["totalExpense"],
-      totalIncome: data["totalIncome"],
-      totalAll: data["totalAll"],
+      userId: snap.id,
+      name: snap["name"],
+      email: snap["email"],
+      userImage: snap["userImage"],
+      date: DateTime.parse(snap["date"]),
+      totalExpense: snap["totalExpense"],
+      totalIncome: snap["totalIncome"],
+      totalAll: snap["totalAll"],
     );
   }
 
@@ -44,4 +47,16 @@ class UserModel {
       "totalAll": totalAll,
     };
   }
+
+  @override
+  List<Object?> get props => [
+        userId,
+        name,
+        email,
+        userImage,
+        date,
+        totalAll,
+        totalExpense,
+        totalIncome,
+      ];
 }
