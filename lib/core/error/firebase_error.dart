@@ -90,6 +90,7 @@ class HandleErroFirebaseException extends ErrorHandle {
         return HandleErroFirebaseException(
           message: MessageError.notFound,
         );
+
       case CaseError.alreadyExists:
         return HandleErroFirebaseException(
           message: MessageError.alreadyExists,

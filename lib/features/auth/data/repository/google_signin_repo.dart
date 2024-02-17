@@ -4,7 +4,6 @@ import 'package:google_sign_in/google_sign_in.dart';
 import "package:dartz/dartz.dart";
 
 abstract class GoogleSignInRepo {
-  // sign in with google sign in
   Future<Either<ErrorHandle, UserCredential?>> signInWithGoogle();
   // reload current user to get any changes made
   Future<Either<ErrorHandle, Unit>> reloadCurrentUser();

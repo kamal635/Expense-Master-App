@@ -1,8 +1,9 @@
 import 'package:expense_master/core/routing/method_pages.dart';
 import 'package:expense_master/core/routing/name_router.dart';
 import 'package:expense_master/features/auth/logic/cubit_auth_listen/auth_listen_cubit.dart';
-import 'package:expense_master/features/onBording/view/onBording_view.dart';
-import 'package:expense_master/features/onbording/widgets/button_onbording.dart';
+import 'package:expense_master/features/home/view/home_view.dart';
+import 'package:expense_master/features/onboarding/view/onboarding_view.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,14 +14,14 @@ abstract class AppRouter {
 
     switch (settings.name) {
       // ======================= OnBording View =======================
-      case NameRouter.onbordingView:
+      case NameRouter.onboardingView:
         return MaterialPageRoute(
           builder: (context) => BlocBuilder<AuthListenCubit, AuthListenState>(
             builder: (context, state) {
               if (state is Authenticated) {
                 return currentPage(page: const HomeView());
               } else {
-                return currentPage(page: const OnBordingView());
+                return currentPage(page: const OnBoardingView());
               }
             },
           ),

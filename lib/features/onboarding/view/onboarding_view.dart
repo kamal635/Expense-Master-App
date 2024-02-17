@@ -1,11 +1,11 @@
-import 'package:expense_master/features/onbording/widgets/button_onbording.dart';
-import 'package:expense_master/features/onbording/widgets/image_onbording.dart';
-import 'package:expense_master/features/onbording/widgets/title_onbording.dart';
+import 'package:expense_master/features/onboarding/widgets/button_onboarding.dart';
+import 'package:expense_master/features/onboarding/widgets/image_onboarding.dart';
+import 'package:expense_master/features/onboarding/widgets/title_onboarding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class OnBordingView extends StatelessWidget {
-  const OnBordingView({super.key});
+class OnBoardingView extends StatelessWidget {
+  const OnBoardingView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +22,9 @@ class OnBordingView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              TitleOnBordingView(),
-              ImageOnBordingView(),
-              ButtonOnBordingView(),
+              TitleOnBoardingView(),
+              ImageOnBoardingView(),
+              ButtonOnBoardingView(),
             ],
           ),
         ),

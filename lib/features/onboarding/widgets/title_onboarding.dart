@@ -3,8 +3,8 @@ import 'package:expense_master/core/styling/app_color.dart';
 import 'package:expense_master/core/styling/app_fonts.dart';
 import 'package:flutter/material.dart';
 
-class TitleOnBordingView extends StatelessWidget {
-  const TitleOnBordingView({super.key});
+class TitleOnBoardingView extends StatelessWidget {
+  const TitleOnBoardingView({super.key});
 
   @override
   Widget build(BuildContext context) {
