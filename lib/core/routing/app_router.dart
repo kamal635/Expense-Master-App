@@ -18,9 +18,9 @@ abstract class AppRouter {
           builder: (context) => BlocBuilder<AuthListenCubit, AuthListenState>(
             builder: (context, state) {
               if (state is Authenticated) {
-                return const HomeView();
+                return currentPage(page: const HomeView());
               } else {
-                return const OnBordingView();
+                return currentPage(page: const OnBordingView());
               }
             },
           ),

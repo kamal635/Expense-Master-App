@@ -7,6 +7,7 @@ abstract class AuthListenRepo {
 
 class AuthListenRepoImpl implements AuthListenRepo {
   final FirebaseAuth _firebaseAuth;
+
   AuthListenRepoImpl({FirebaseAuth? firebaseAuth})
       : _firebaseAuth = firebaseAuth ?? FirebaseAuth.instance;
 
