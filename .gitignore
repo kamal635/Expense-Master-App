@@ -42,6 +42,25 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+<<<<<<< HEAD
+android/.tmp/gradle_download2352384215084923310bin
+android/android.lock
+android/.tmp/
+android/caches/
+android/wrapper/
+android/android/FakeDependency.jar
+android/daemon/7.5/registry.bin
+android/daemon/7.5/registry.bin.lock
+android/kotlin-profile/2024-02-18-04-27-11-924.profile
+android/native/0d407fdbe67a94daf76414ababcb853783967236a71b16ec16e742cd7a986fd3/windows-amd64/native-platform-file-events.dll
+android/native/0d407fdbe67a94daf76414ababcb853783967236a71b16ec16e742cd7a986fd3/windows-amd64/native-platform-file-events.dll.lock
+android/native/e1d6ef7f7dcc3fd88c89a11ec53ec762bb8ba0a96d01ffa2cd45eb1d1d8dd5c5/windows-amd64/native-platform.dll
+android/native/e1d6ef7f7dcc3fd88c89a11ec53ec762bb8ba0a96d01ffa2cd45eb1d1d8dd5c5/windows-amd64/native-platform.dll.lock
+android/native/jansi/1.18/windows64/jansi.dll
+macos/Flutter/GeneratedPluginRegistrant.swift
+windows/flutter/generated_plugin_registrant.cc
+windows/flutter/generated_plugins.cmake
+=======
 android/.tmp/
 android/caches/
 android/wrapper/
@@ -54,3 +73,4 @@ android/kotlin-profile/2024-02-18-04-27-11-924.profile
 macos/Flutter/GeneratedPluginRegistrant.swift
 
 
+>>>>>>> d3a14c83b6020111ed7d25f282dceedfc27a42c0

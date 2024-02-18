@@ -1,6 +1,15 @@
   
 flutter_native_splash:
  # for Android below 12
+<<<<<<< HEAD
+  color: "#FDF9F0"
+  image: assets/images/splash_screen/splash_screen.png
+
+ # for Android 12+
+  android_12:
+    image: assets/images/splash_screen/splash_screen.png
+    color: "#FDF9F0"
+=======
   color: "#FF7799"
   image: assets/images/splash_screen/splash_view.png
 
@@ -10,3 +19,4 @@ flutter_native_splash:
     color: "#FF7799"
 
 '
+>>>>>>> d3a14c83b6020111ed7d25f282dceedfc27a42c0
