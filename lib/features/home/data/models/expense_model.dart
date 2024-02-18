@@ -8,7 +8,7 @@ class ExpenseModel extends Equatable {
   final DateTime dateExpense;
   final String? remarkExpense;
 
-  ExpenseModel(
+  const ExpenseModel(
       {this.idExpense,
       required this.inputExpense,
       this.iconCategoryExpense,

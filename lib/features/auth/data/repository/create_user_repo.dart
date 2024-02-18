@@ -17,10 +17,13 @@ class CreateUserRepoImpl implements CreateUserRepo {
   Future<Either<ErrorHandle, Unit>> createUser(
       {required UserModel userModel}) async {
     try {
-      await _firestore
-          .collection("users")
-          .doc(userModel.userId)
-          .set(userModel.toFirestore());
+      if (userModel.userId == null) {
+        await _firestore
+            .collection("users")
+            .doc(userModel.userId)
+            .set(userModel.toFirestore());
+      }
+
       return right(unit);
     } catch (e) {
       return methodHandleErrorExceptions(e);
