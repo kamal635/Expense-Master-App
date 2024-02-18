@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "600600299470",
+    "project_id": "expensemaster-c337f",
+    "storage_bucket": "expensemaster-c337f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:600600299470:android:e6dfa98addd41264554d9f",
+        "android_client_info": {
+          "package_name": "com.example.expense_master"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "600600299470-3s143put0kt5h47dv1umbmt00dc6a3v7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCo9MmvKGwsFgaEME8soI4D2SmS57cLQ2E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "600600299470-3s143put0kt5h47dv1umbmt00dc6a3v7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
