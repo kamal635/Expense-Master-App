@@ -1,3 +1,4 @@
+import 'package:expense_master/core/widgets/app_button.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -5,6 +6,10 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Center(
+        child: AppButton(title: "here", onPressed: () {}),
+      ),
+    );
   }
 }
