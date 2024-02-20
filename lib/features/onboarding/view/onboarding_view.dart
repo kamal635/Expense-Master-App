@@ -11,21 +11,23 @@ class OnBoardingView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.only(
-            left: 20.w,
-            right: 20.w,
-            top: 40.h,
-            bottom: 60.h,
-          ),
-          child: const Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              TitleOnBoardingView(),
-              ImageOnBoardingView(),
-              ButtonOnBoardingView(),
-            ],
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.only(
+              left: 20.w,
+              right: 20.w,
+              top: 40.h,
+              bottom: 60.h,
+            ),
+            child: const Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                TitleOnBoardingView(),
+                ImageOnBoardingView(),
+                ButtonOnBoardingView(),
+              ],
+            ),
           ),
         ),
       ),

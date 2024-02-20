@@ -6,4 +6,6 @@ abstract class AppString {
   static const String tryAgain = "Try again";
   static const String ohNo = "Oh no !";
   static const String loading = "Loading...";
+  static const String income = "Income";
+  static const String total = "Total";
 }
