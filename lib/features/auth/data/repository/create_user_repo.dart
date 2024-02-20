@@ -17,11 +17,16 @@ class CreateUserRepoImpl implements CreateUserRepo {
   Future<Either<ErrorHandle, Unit>> createUser(
       {required UserModel userModel}) async {
     try {
-      if (userModel.userId == null) {
-        await _firestore
-            .collection("users")
-            .doc(userModel.userId)
-            .set(userModel.toFirestore());
+      // Get a reference to the document in Firestore
+      DocumentReference docRef =
+          _firestore.collection("users").doc(userModel.userId);
+
+      // Fetch the document
+      DocumentSnapshot docSnap = await docRef.get();
+
+      // Set the document if it doesn't exist
+      if (!docSnap.exists) {
+        docRef.set(userModel.toFirestore());
       }
 
       return right(unit);
