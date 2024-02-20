@@ -16,7 +16,7 @@ void dialogError({required BuildContext context, required String? error}) {
         AppImage.xMark,
         height: 80.h,
         width: 80.w,
-        color: AppColor.secondary,
+        color: AppColor.primary,
       ),
       title: Text(
         AppString.ohNo,
@@ -25,7 +25,7 @@ void dialogError({required BuildContext context, required String? error}) {
       ),
       content: Text(
         error ?? "try again later!",
-        style: AppFonts.normal_14.copyWith(color: AppColor.grey),
+        style: AppFonts.regular_14.copyWith(color: AppColor.grey),
         textAlign: TextAlign.center,
       ),
       actionsAlignment: MainAxisAlignment.center,
@@ -35,7 +35,7 @@ void dialogError({required BuildContext context, required String? error}) {
           onPressed: () {
             context.pop();
           },
-          backgroundColor: AppColor.secondary,
+          backgroundColor: AppColor.primary,
         ),
       ],
     ),
@@ -51,7 +51,7 @@ void dialogSuccess({required BuildContext context, required String success}) {
         AppImage.xMark,
         height: 80.h,
         width: 80.w,
-        color: AppColor.secondary,
+        color: AppColor.primary,
       ),
       title: Text(
         AppString.ohNo,
@@ -60,7 +60,7 @@ void dialogSuccess({required BuildContext context, required String success}) {
       ),
       content: Text(
         success,
-        style: AppFonts.normal_14.copyWith(color: AppColor.grey),
+        style: AppFonts.regular_14.copyWith(color: AppColor.grey),
         textAlign: TextAlign.center,
       ),
       actionsAlignment: MainAxisAlignment.center,
@@ -70,7 +70,7 @@ void dialogSuccess({required BuildContext context, required String success}) {
           onPressed: () {
             context.pop();
           },
-          backgroundColor: AppColor.secondary,
+          backgroundColor: AppColor.primary,
         ),
       ],
     ),

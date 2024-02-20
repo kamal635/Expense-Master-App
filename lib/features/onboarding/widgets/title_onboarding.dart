@@ -19,7 +19,7 @@ class TitleOnBoardingView extends StatelessWidget {
           TextSpan(
             text: AppString.expense,
             style: AppFonts.semiBold_28.copyWith(
-              color: AppColor.secondary,
+              color: AppColor.primary,
             ),
           ),
           TextSpan(

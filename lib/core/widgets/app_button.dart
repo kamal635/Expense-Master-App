@@ -30,7 +30,7 @@ class AppButton extends StatelessWidget {
       height: height ?? 45.h,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: backgroundColor ?? AppColor.secondary,
+          backgroundColor: backgroundColor ?? AppColor.primary,
         ),
         onPressed: onPressed,
         child:

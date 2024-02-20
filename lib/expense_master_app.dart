@@ -17,6 +17,7 @@ class ExpenseMasterApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       minTextAdapt: true,
+      splitScreenMode: true,
       child: MultiBlocProvider(
         providers: [
           BlocProvider(
@@ -35,7 +36,7 @@ class ExpenseMasterApp extends StatelessWidget {
           theme: ThemeData(
             scaffoldBackgroundColor: AppColor.scaffold,
           ),
-          initialRoute: NameRouter.onboardingView,
+          initialRoute: NameRouter.homeView,
           onGenerateRoute: AppRouter.onGenerateRoute,
         ),
       ),

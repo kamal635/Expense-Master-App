@@ -4,16 +4,29 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 abstract class AppFonts {
   //======================== Rgeular ========================
-  static TextStyle normal_14 = TextStyle(
+  static TextStyle regular_12 = TextStyle(
+    fontSize: 12.sp,
+    fontWeight: WeightFonts.regular,
+  );
+  static TextStyle regular_14 = TextStyle(
     fontSize: 14.sp,
-    fontWeight: WeightFonts.normal,
+    fontWeight: WeightFonts.regular,
   );
   //======================== Medium ========================
+
   static TextStyle medium_14 = TextStyle(
     fontSize: 14.sp,
     fontWeight: WeightFonts.medium,
   );
   //======================== Semi Bold ========================
+  static TextStyle semiBold_12 = TextStyle(
+    fontSize: 12.sp,
+    fontWeight: WeightFonts.semiBold,
+  );
+  static TextStyle semiBold_14 = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: WeightFonts.semiBold,
+  );
   static TextStyle semiBold_28 = TextStyle(
     fontSize: 28.sp,
     fontWeight: WeightFonts.semiBold,
