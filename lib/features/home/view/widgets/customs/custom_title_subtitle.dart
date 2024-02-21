@@ -17,25 +17,23 @@ class CustomTitleAndSubTitle extends StatelessWidget {
   final Color? fontColor;
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            title,
-            textAlign: TextAlign.center,
-            style: fontSizeTitle ?? AppFonts.regular_12,
-          ),
-          Text(
-            subTitle ?? r"$0",
-            style: fontSizeSubTitle ??
-                AppFonts.regular_12.copyWith(color: fontColor),
-            textAlign: TextAlign.center,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-          ),
-        ],
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          title,
+          textAlign: TextAlign.center,
+          style: fontSizeTitle ?? AppFonts.regular_12,
+        ),
+        Text(
+          subTitle ?? r"$0",
+          style: fontSizeSubTitle ??
+              AppFonts.regular_12.copyWith(color: fontColor),
+          textAlign: TextAlign.center,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+        ),
+      ],
     );
   }
 }

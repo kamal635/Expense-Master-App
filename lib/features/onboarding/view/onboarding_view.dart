@@ -1,3 +1,4 @@
+import 'package:expense_master/core/styling/app_color.dart';
 import 'package:expense_master/features/onboarding/widgets/button_onboarding.dart';
 import 'package:expense_master/features/onboarding/widgets/image_onboarding.dart';
 import 'package:expense_master/features/onboarding/widgets/title_onboarding.dart';
@@ -10,24 +11,27 @@ class OnBoardingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColor.secondray,
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.only(
-              left: 20.w,
-              right: 20.w,
-              top: 40.h,
-              bottom: 60.h,
-            ),
-            child: const Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                TitleOnBoardingView(),
-                ImageOnBoardingView(),
-                ButtonOnBoardingView(),
-              ],
-            ),
+        child: Padding(
+          padding: EdgeInsets.only(
+            left: 20.w,
+            right: 20.w,
+            top: 40.h,
+            bottom: 60.h,
+          ),
+          child: const Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Flexible(
+                child: TitleOnBoardingView(),
+              ),
+              Flexible(
+                flex: 2,
+                child: ImageOnBoardingView(),
+              ),
+              ButtonOnBoardingView(),
+            ],
           ),
         ),
       ),

@@ -1,5 +1,5 @@
 import 'package:expense_master/core/helper/spacing.dart';
-import 'package:expense_master/features/home/view/widgets/sum_home.dart';
+import 'package:expense_master/features/home/view/widgets/summary_section.dart';
 import 'package:expense_master/features/home/view/widgets/switch_months_years.dart';
 import 'package:flutter/material.dart';
 

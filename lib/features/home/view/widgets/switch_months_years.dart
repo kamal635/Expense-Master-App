@@ -21,10 +21,12 @@ class CustomSwitchMonthsAndYears extends StatelessWidget {
           ),
 
           // months and years
-          CustomTitleAndSubTitle(
-            title: "2024",
-            subTitle: "February",
-            fontSizeSubTitle: AppFonts.semiBold_14,
+          Expanded(
+            child: CustomTitleAndSubTitle(
+              title: "2024",
+              subTitle: "February",
+              fontSizeSubTitle: AppFonts.semiBold_14,
+            ),
           ),
 
           // icon right
