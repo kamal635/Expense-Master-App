@@ -1,3 +1,4 @@
+import 'package:expense_master/core/icons/app_icon.dart';
 import 'package:expense_master/core/styling/app_fonts.dart';
 import 'package:expense_master/core/widgets/app_icon_button.dart';
 import 'package:expense_master/features/home/view/widgets/customs/custom_title_subtitle.dart';
@@ -15,7 +16,7 @@ class CustomSwitchMonthsAndYears extends StatelessWidget {
         children: [
           // icon left
           AppIconButton(
-            icon: const Icon(Icons.arrow_back_ios),
+            icon: const Icon(AppIcons.arrowBack),
             onPressed: () {},
           ),
 
@@ -28,7 +29,7 @@ class CustomSwitchMonthsAndYears extends StatelessWidget {
 
           // icon right
           AppIconButton(
-            icon: const Icon(Icons.arrow_forward_ios),
+            icon: const Icon(AppIcons.arrowForward),
             onPressed: () {},
           ),
         ],

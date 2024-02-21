@@ -36,7 +36,7 @@ class ExpenseMasterApp extends StatelessWidget {
           theme: ThemeData(
             scaffoldBackgroundColor: AppColor.scaffold,
           ),
-          initialRoute: NameRouter.homeView,
+          initialRoute: NameRouter.onboardingView,
           onGenerateRoute: AppRouter.onGenerateRoute,
         ),
       ),

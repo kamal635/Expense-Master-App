@@ -7,18 +7,16 @@ class CustomAverageDaily extends StatelessWidget {
     super.key,
     required this.title,
   });
-  final String title;
+  final String? title;
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Text(
-        title,
-        style: AppFonts.regular_12.copyWith(color: AppColor.grey),
-        textAlign: TextAlign.center,
-        maxLines: 1,
-        overflow: TextOverflow.ellipsis,
-      ),
+    return Text(
+      title ?? r"0$ Daily",
+      style: AppFonts.regular_12.copyWith(color: AppColor.grey),
+      textAlign: TextAlign.center,
+      maxLines: 1,
+      overflow: TextOverflow.ellipsis,
     );
   }
 }

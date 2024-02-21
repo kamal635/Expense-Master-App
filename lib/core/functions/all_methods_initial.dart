@@ -30,7 +30,7 @@ Future<void> allMethodsToInitial() async {
   Hive.initFlutter();
 
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    systemNavigationBarColor: AppColor.scaffold, // navigation bar color
+    systemNavigationBarColor: AppColor.secondray, // navigation bar color
     statusBarColor: AppColor.scaffold, // status bar color
   ));
 }

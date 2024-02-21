@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 abstract class AppColor {
-  static const Color scaffold = Color(0XFFFDF9F0);
+  static const Color scaffold = Color(0XFFEBE8DF);
+  static const Color secondray = Color(0XFFFDF9F0);
   static const Color primary = Color(0XFF957529);
   static const Color withe = Color(0XFFFFFFFF);
   static const Color black = Color(0XFF000000);
