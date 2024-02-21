@@ -11,7 +11,7 @@ class CustomTitleAndSubTitle extends StatelessWidget {
     this.fontColor,
   });
   final String title;
-  final String subTitle;
+  final String? subTitle;
   final TextStyle? fontSizeTitle;
   final TextStyle? fontSizeSubTitle;
   final Color? fontColor;
@@ -27,7 +27,7 @@ class CustomTitleAndSubTitle extends StatelessWidget {
             style: fontSizeTitle ?? AppFonts.regular_12,
           ),
           Text(
-            subTitle,
+            subTitle ?? r"$0",
             style: fontSizeSubTitle ??
                 AppFonts.regular_12.copyWith(color: fontColor),
             textAlign: TextAlign.center,

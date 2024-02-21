@@ -1,21 +1,42 @@
-import 'package:expense_master/features/home/view/widgets/average_daily.dart';
-import 'package:expense_master/features/home/view/widgets/summary_sum.dart';
+import 'package:expense_master/core/Strings/app_strings.dart';
+import 'package:expense_master/core/icons/app_icon.dart';
+import 'package:expense_master/core/styling/app_color.dart';
+import 'package:expense_master/features/home/view/widgets/sum_home.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class SummarySection extends StatelessWidget {
-  const SummarySection({super.key});
+class SummarySectionMonthlyAndDailyHomeView extends StatelessWidget {
+  const SummarySectionMonthlyAndDailyHomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const SummarySum(),
-        Divider(
-          thickness: 0.5.dg,
-        ),
-        const AverageDaily(),
-      ],
+    return const IntrinsicHeight(
+      child: Row(
+        children: [
+          // Income
+          SumHomeView(
+            title: AppString.income,
+            icon: AppIcons.circleUp,
+            colorValueMonthly: AppColor.green,
+            iconColor: AppColor.green,
+            colorDivider: AppColor.green,
+          ),
+
+          // Expense
+          SumHomeView(
+            title: AppString.income,
+            icon: AppIcons.circleDown,
+            colorValueMonthly: AppColor.darkRed,
+            iconColor: AppColor.darkRed,
+            colorDivider: AppColor.darkRed,
+          ),
+
+          // Total
+          SumHomeView(
+            title: AppString.total,
+            icon: AppIcons.total,
+          ),
+        ],
+      ),
     );
   }
 }
