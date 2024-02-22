@@ -6,16 +6,21 @@ class AppIconButton extends StatelessWidget {
     this.iconSize,
     required this.icon,
     required this.onPressed,
+    this.colorIcon,
   });
   final double? iconSize;
-  final Widget icon;
+  final IconData icon;
+  final Color? colorIcon;
   final VoidCallback onPressed;
   @override
   Widget build(BuildContext context) {
     return IconButton(
       iconSize: 15,
       onPressed: onPressed,
-      icon: icon,
+      icon: Icon(
+        icon,
+        color: colorIcon,
+      ),
     );
   }
 }

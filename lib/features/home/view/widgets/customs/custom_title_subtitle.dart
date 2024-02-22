@@ -1,3 +1,4 @@
+import 'package:expense_master/core/helper/spacing.dart';
 import 'package:expense_master/core/styling/app_fonts.dart';
 import 'package:flutter/material.dart';
 
@@ -9,12 +10,14 @@ class CustomTitleAndSubTitle extends StatelessWidget {
     this.fontSizeTitle,
     this.fontSizeSubTitle,
     this.fontColor,
+    this.titleColor,
   });
   final String title;
   final String? subTitle;
   final TextStyle? fontSizeTitle;
   final TextStyle? fontSizeSubTitle;
   final Color? fontColor;
+  final Color? titleColor;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -23,8 +26,10 @@ class CustomTitleAndSubTitle extends StatelessWidget {
         Text(
           title,
           textAlign: TextAlign.center,
-          style: fontSizeTitle ?? AppFonts.regular_12,
+          style:
+              fontSizeTitle ?? AppFonts.regular_12.copyWith(color: titleColor),
         ),
+        spaceheight(5),
         Text(
           subTitle ?? r"$0",
           style: fontSizeSubTitle ??
