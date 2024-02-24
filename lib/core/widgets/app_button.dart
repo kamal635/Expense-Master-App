@@ -30,7 +30,7 @@ class AppButton extends StatelessWidget {
       height: height ?? 45.h,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: backgroundColor ?? AppColor.primary,
+          backgroundColor: backgroundColor ?? AppColor.button,
         ),
         onPressed: onPressed,
         child:
@@ -41,13 +41,13 @@ class AppButton extends StatelessWidget {
                       Image.asset(
                         AppImage.gLogo,
                         height: 20.h,
-                        color: AppColor.withe,
+                        color: AppColor.black,
                       ),
                       spaceWidth(8),
                       Text(
                         title,
                         style: AppFonts.medium_14.copyWith(
-                          color: textColor ?? AppColor.withe,
+                          color: textColor ?? AppColor.black,
                         ),
                       ),
                     ],
@@ -56,7 +56,7 @@ class AppButton extends StatelessWidget {
                 : Text(
                     title,
                     style: AppFonts.medium_14.copyWith(
-                      color: textColor ?? AppColor.withe,
+                      color: textColor ?? AppColor.black,
                     ),
                   ),
       ),

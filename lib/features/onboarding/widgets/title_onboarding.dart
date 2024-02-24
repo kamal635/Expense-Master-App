@@ -12,20 +12,16 @@ class TitleOnBoardingView extends StatelessWidget {
       textAlign: TextAlign.center,
       text: TextSpan(
         text: AppString.welcomeTo,
-        style: AppFonts.semiBold_28.copyWith(
-          color: AppColor.black,
-        ),
+        style: AppFonts.semiBold_28.copyWith(),
         children: [
           TextSpan(
             text: AppString.expense,
-            style: AppFonts.semiBold_28.copyWith(
-              color: AppColor.primary,
-            ),
+            style: AppFonts.semiBold_28.copyWith(),
           ),
           TextSpan(
             text: AppString.master,
             style: AppFonts.semiBold_28.copyWith(
-              color: AppColor.black,
+              color: AppColor.button,
             ),
           )
         ],
