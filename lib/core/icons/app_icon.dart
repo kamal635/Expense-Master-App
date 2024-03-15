@@ -6,4 +6,6 @@ abstract class AppIcons {
   static const IconData total = Icons.attach_money;
   static const IconData arrowBack = Icons.arrow_back_ios;
   static const IconData arrowForward = Icons.arrow_forward_ios;
+  static const IconData arrowDown = Icons.keyboard_arrow_down_outlined;
+  static const IconData arrowUp = Icons.keyboard_arrow_up_outlined;
 }

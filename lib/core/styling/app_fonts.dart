@@ -27,6 +27,10 @@ abstract class AppFonts {
     fontSize: 14.sp,
     fontWeight: WeightFonts.semiBold,
   );
+  static TextStyle semiBold_20 = TextStyle(
+    fontSize: 20.sp,
+    fontWeight: WeightFonts.semiBold,
+  );
   static TextStyle semiBold_28 = TextStyle(
     fontSize: 28.sp,
     fontWeight: WeightFonts.semiBold,

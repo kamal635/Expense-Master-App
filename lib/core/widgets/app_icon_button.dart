@@ -15,8 +15,9 @@ class AppIconButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      iconSize: 15,
+      iconSize: iconSize ?? 15,
       onPressed: onPressed,
+      alignment: Alignment.center,
       icon: Icon(
         icon,
         color: colorIcon,

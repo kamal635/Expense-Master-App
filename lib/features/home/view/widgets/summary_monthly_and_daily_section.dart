@@ -12,19 +12,19 @@ class SummarySectionMonthlyAndDailyHomeView extends StatelessWidget {
     return Container(
       color: AppColor.primary,
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
+        padding: EdgeInsets.symmetric(vertical: 6.h),
         child: const Row(
           children: [
             // Income
             CustomSumHomeView(
               title: AppString.income,
-              titleColor: AppColor.green,
+              colorValueMonthly: AppColor.button,
             ),
 
             // Expense
             CustomSumHomeView(
               title: AppString.expense,
-              titleColor: AppColor.red,
+              colorValueMonthly: AppColor.red,
             ),
 
             // Total

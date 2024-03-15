@@ -4,26 +4,33 @@ import 'package:expense_master/features/auth/logic/cubit_sign_in_google/google_s
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+String?
+    _lastErrorMessage; // this to display one error message if error duplicate
+
 // I do this method to check on all pages,
 // if any error occurs, it will appear to the user
 Widget currentPage({required Widget page}) {
   return BlocListener<GoogleSignInCubit, GoogleSignInState>(
     listener: (context, state) {
-      state.whenOrNull(
-        signInFailure: (error) => dialogError(
+      if (state is SignInFailure) {
+        _lastErrorMessage = state.error;
+
+        dialogError(
           context: context,
-          error: error,
-        ),
-      );
+          error: state.error,
+        );
+      }
     },
     child: BlocListener<CreateUserCubit, CreateUserState>(
       listener: (context, state) {
-        state.whenOrNull(
-          createUserFailure: (error) => dialogError(
+        if (state is CreateUserFailure && state.error != _lastErrorMessage) {
+          _lastErrorMessage = state.error;
+
+          dialogError(
             context: context,
-            error: error,
-          ),
-        );
+            error: state.error,
+          );
+        }
       },
       child: page,
     ),

@@ -12,11 +12,12 @@ void dialogError({required BuildContext context, required String? error}) {
   showDialog(
     context: context,
     builder: (context) => AlertDialog(
+      backgroundColor: AppColor.primary,
       icon: Image.asset(
         AppImage.xMark,
         height: 80.h,
         width: 80.w,
-        color: AppColor.primary,
+        color: AppColor.button,
       ),
       title: Text(
         AppString.ohNo,
@@ -25,7 +26,7 @@ void dialogError({required BuildContext context, required String? error}) {
       ),
       content: Text(
         error ?? "try again later!",
-        style: AppFonts.regular_14.copyWith(color: AppColor.grey),
+        style: AppFonts.regular_14,
         textAlign: TextAlign.center,
       ),
       actionsAlignment: MainAxisAlignment.center,
@@ -35,7 +36,7 @@ void dialogError({required BuildContext context, required String? error}) {
           onPressed: () {
             context.pop();
           },
-          backgroundColor: AppColor.primary,
+          backgroundColor: AppColor.button,
         ),
       ],
     ),
